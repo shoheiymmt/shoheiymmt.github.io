@@ -1,0 +1,72 @@
+---
+const { title = 'shoheiymmt', description = 'shoheiymmtの技術ブログです。' } = Astro.props;
+const homeUrl = import.meta.env.BASE_URL;
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="site-title" href={homeUrl}>shoheiymmt</a>
+      </div>
+    </header>
+    <main class="container">
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color: #202124;
+    background: #f8f7f3;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .container {
+    width: min(100% - 2rem, 42rem);
+    margin-inline: auto;
+  }
+
+  .site-header {
+    padding: 2rem 0;
+    border-bottom: 1px solid #d9d7d0;
+  }
+
+  .site-title {
+    color: #202124;
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  a {
+    color: #8b3a32;
+  }
+
+  @media (max-width: 40rem) {
+    :root {
+      font-size: 16px;
+    }
+
+    .site-header {
+      padding: 1.25rem 0;
+    }
+  }
+</style>
